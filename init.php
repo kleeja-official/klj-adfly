@@ -20,7 +20,7 @@ $kleeja_plugin['klj_adfly']['information'] = array(
     # Who wrote this plugin?
     'plugin_developer' => 'Kleeja.com',
     # This plugin version
-    'plugin_version' => '1.1',
+    'plugin_version' => '1.2',
     # Explain what is this plugin, why should I use it?
     'plugin_description' => array(
         'en' => 'Generate a links using adf.ly service',
@@ -260,7 +260,7 @@ if (!function_exists('generate_klj_adfly_link')) {
         $service_url = $api . http_build_query($query);
 
 
-        $received_data = fetch_remote_file($service_url);
+        $received_data =FetchFile::make($service_url)->get();
 
 
         if(empty($received_data))
